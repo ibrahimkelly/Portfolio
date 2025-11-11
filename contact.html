@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
   <meta charset="utf-8">
@@ -42,7 +42,7 @@
 
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
-          <li><a href="index.html">Acceuil</a></li>
+          <li><a href="index.html">Accueil</a></li>
           <li><a href="about.html">A propos</a></li>
           <li><a href="resume.html">Expériences</a></li>
           <li><a href="services.html">Services</a></li>
@@ -56,7 +56,7 @@
         <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
         <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
         <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-        <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></i></a>
+        <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
       </div>
 
     </div>
@@ -132,7 +132,7 @@
               <div class="my-3">
                 <div class="loading">Chargement</div>
                 <div class="error-message"></div>
-                <div class="sent-message">Votre message a été envoyer, merci !</div>
+                <div class="sent-message">Votre message a été envoyé, merci !</div>
               </div>
               <div id="sendMessage" class="text-center"><button type="submit">Envoyer le message</button></div>
             </form>
@@ -190,7 +190,7 @@
       var objet = document.getElementById('subject').value;
       var message = document.getElementById('message').value;
       var body = '' + name + '<br>' + email + '<br>' +
-      subject + '<br>' + message;
+      objet + '<br>' + message;
 
       Email.send({
         Host: "smtp.gmail.com",
@@ -201,7 +201,7 @@
         Subject: objet,
         Body: body,
       }).then(
-        message => alert("Message envoyer, I'll reply back to you")
+        message => alert("Message envoyé, je vous répondrai bientôt")
       );
       removeItems();
     })

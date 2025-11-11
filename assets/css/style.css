@@ -128,10 +128,12 @@ h6 {
 # Header
 --------------------------------------------------------------*/
 #header {
-  background: #e9e8e6;
-  box-shadow: 0px 0px 25px 0 rgba(0, 0, 0, 0.08);
+  background: rgba(26, 26, 26, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0px 2px 20px 0 rgba(255, 165, 0, 0.1);
   z-index: 997;
   padding: 15px 0;
+  transition: all 0.3s ease;
 }
 
 #header .logo {
@@ -170,12 +172,14 @@ h6 {
   padding-left: 6px;
   display: inline-block;
   line-height: 0px;
-  transition: 0.3s;
+  transition: all 0.3s ease;
   font-size: 16px;
 }
 
 .header-social-links a:hover {
   color: orange;
+  transform: translateY(-2px);
+  filter: drop-shadow(0 2px 4px rgba(255, 165, 0, 0.5));
 }
 
 /*--------------------------------------------------------------
@@ -459,8 +463,13 @@ h6 {
   font-size: 48px;
   font-weight: 700;
   line-height: 56px;
-  color: orange;
-  text-shadow: 1px 1px 1px #000;
+  background: linear-gradient(135deg, #ff8c00 0%, #ffa500 50%, #ffd700 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: none;
+  animation: gradient-shift 3s ease infinite;
+  background-size: 200% 200%;
 }
 
 #hero h2 {
@@ -468,6 +477,12 @@ h6 {
   margin: 10px 0 0 0;
   font-size: 22px;
   font-weight: bold;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 10px 25px;
+  border-radius: 30px;
+  border: 1px solid rgba(255, 165, 0, 0.3);
+  display: inline-block;
 }
 
 #hero .btn-about {
@@ -479,15 +494,20 @@ h6 {
   display: inline-block;
   padding: 12px 40px;
   border-radius: 50px;
-  transition: 0.5s;
-  margin-top: 30px;
+  transition: all 0.5s ease;
+  margin: 15px 10px 0 10px;
   color: #000;
-  background: orange;
+  background: linear-gradient(135deg, #ff8c00 0%, #ffa500 100%);
+  box-shadow: 0 4px 15px rgba(255, 165, 0, 0.4);
+  position: relative;
+  overflow: hidden;
 }
 
 #hero .btn-about:hover {
-  background: #000;
-  color: orange;
+  background: linear-gradient(135deg, #ffa500 0%, #ff8c00 100%);
+  color: #000;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 165, 0, 0.6);
 }
 
 @media (min-width: 1024px) {
@@ -574,18 +594,23 @@ section {
   margin-bottom: 20px;
   padding-bottom: 20px;
   position: relative;
-  color: orange;
+  background: linear-gradient(135deg, #ff8c00 0%, #ffa500 50%, #ffd700 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .section-title h2::after {
   content: "";
   position: absolute;
   display: block;
-  width: 50px;
-  height: 3px;
-  background: orange;
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, #ff8c00 0%, #ffa500 50%, #ffd700 100%);
   bottom: 0;
-  left: calc(50% - 25px);
+  left: calc(50% - 30px);
+  border-radius: 2px;
+  box-shadow: 0 2px 8px rgba(255, 165, 0, 0.5);
 }
 
 .section-title p {
@@ -711,8 +736,9 @@ section {
   width: 1px;
   height: 10px;
   transition: 0.9s;
-  background-color: orange;
-  box-shadow: 1px 1px 1px #000;
+  background: linear-gradient(90deg, #ff8c00 0%, #ffa500 50%, #ffd700 100%);
+  box-shadow: 0 2px 8px rgba(255, 165, 0, 0.5), 1px 1px 1px #000;
+  border-radius: 5px;
 }
 
 /*--------------------------------------------------------------
@@ -829,8 +855,15 @@ section {
 .resume .resume-item {
   padding: 0 0 20px 20px;
   margin-top: -2px;
-  border-left: 2px solid orange;
+  border-left: 3px solid orange;
   position: relative;
+  transition: all 0.3s ease;
+  padding-left: 25px;
+}
+
+.resume .resume-item:hover {
+  transform: translateX(5px);
+  border-left-color: #ffd700;
 }
 
 .resume .resume-item h4 {
@@ -838,8 +871,12 @@ section {
   font-size: 18px;
   font-weight: 600;
   font-family: "Poppins", sans-serif;
-  color: orange;
+  background: linear-gradient(135deg, #ff8c00 0%, #ffa500 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   margin-bottom: 10px;
+  transition: all 0.3s ease;
 }
 
 .resume .resume-item h5 {
@@ -1342,11 +1379,68 @@ section {
   }
 }
 
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/*--------------------------------------------------------------
+# Advanced Skills Section
+--------------------------------------------------------------*/
+#advanced-skills {
+  background: linear-gradient(135deg, rgba(26, 26, 26, 0.95) 0%, rgba(0, 0, 0, 0.98) 100%);
+  position: relative;
+}
+
+#advanced-skills::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(255, 165, 0, 0.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+#advanced-skills .resume-item {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 165, 0, 0.2);
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+}
+
+#advanced-skills .resume-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 165, 0, 0.5);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(255, 165, 0, 0.2);
+}
+
+#advanced-skills .resume-item h4 i {
+  color: orange;
+  margin-right: 10px;
+  font-size: 1.2em;
+  filter: drop-shadow(0 2px 4px rgba(255, 165, 0, 0.5));
+}
+
 /*--------------------------------------------------------------
 # Footer
 --------------------------------------------------------------*/
 #footer {
   padding: 30px 0;
+  background: linear-gradient(180deg, rgba(26, 26, 26, 0.95) 0%, rgba(0, 0, 0, 1) 100%);
+  border-top: 1px solid rgba(255, 165, 0, 0.2);
   color: orange;
   font-size: 14px;
   text-align: center;
